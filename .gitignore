@@ -1,0 +1,4 @@
+node_modules
+**-workspace
+saved_jobs
+.env
