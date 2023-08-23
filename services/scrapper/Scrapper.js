@@ -1,8 +1,9 @@
-// import { Job } from './Job.js';
-const Job = require('./entities/Job.js');
+const Job = require('./../../entities/Job.js');
 const cheerio = require('cheerio');
 const axios = require('axios');
 const FormData = require('form-data');
+
+
 
 const selectors = {
   

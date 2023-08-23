@@ -5,14 +5,15 @@ module.exports = {
         password: process.env.DB_PASSWORD,
         host: "localhost",
         dialect: "mongodb",
-        database: DB_NAME,
+        database: process.env.DB_NAME,
  
     },
     SCRAPPER : {
         url: "https://www.frro.utn.edu.ar/academica/oferta/",
-        user: SCRAP_USER,
-        password: SCRAP_PASSWORD,
-        clave: SCRAP_CLAVE,
+        url_login: "https://bolsadetrabajo.frro.utn.edu.ar/postulante/inicioSesion.aspx",
+        user: process.env.SCRAP_USER,
+        password: process.env.SCRAP_PASSWORD,
+        clave: process.env.SCRAP_CLAVE,
 
     }
 }
