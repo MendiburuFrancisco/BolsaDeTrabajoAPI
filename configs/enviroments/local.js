@@ -4,7 +4,7 @@ module.exports = {
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         host: "localhost",
-        dialect: "mongodb",
+        dialect: "mysql",
         database: process.env.DB_NAME,
  
     },

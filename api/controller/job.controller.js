@@ -9,12 +9,22 @@ const _clave = configs.SCRAPPER.clave;
 
 class JobController {
     //  getJobs, getJob, createJob, updateJob, deleteJob
+    constructor({ JobService }) {
+        this._jobService = JobService;
+    }
+
     sayHello(req, res) {
         res.send("Hello World");
     }
-
-    getJobs(req, res) {
-        res.send("Get All Jobs");
+ 
+    getAll(req, res) {
+        // res.send("Get All Jobs");
+        const jobs = this._jobService.getAll();
+        return res.send({
+            error: false,
+            payload: jobs
+        })
+        ; 
     }
 
 
