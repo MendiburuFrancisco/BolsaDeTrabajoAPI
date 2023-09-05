@@ -5,16 +5,8 @@ class BaseRepository {
     }
   
     getAll() {
-      console.log("trabajos model:" + this._db[this.model]);
       return  this._db[this.model].findAll({ raw: true });
-            // .then(function (element) {
-            // return element;})
-            // .catch(function (err) {
-            //   console.log(err);
-            // })
-            // ;
-
-   
+    
     }
   
     get(id) {

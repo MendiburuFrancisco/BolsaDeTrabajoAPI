@@ -7,20 +7,20 @@ class BaseBusiness {
   }
 
   async getAll() {
-    const entities = await this._entityRepository.getAll();
-    return entities.map(entity => mapper(this.entityToMap, entity.toJSON()));
+    const entities = await this._entityRepository.getAll(); 
+    return entities.map(entity => mapper(this.entityToMap, entity));
   }
 
   async get(id) {
     const entity = await this._entityRepository.get(id);
     if (!entity) return null;
-    return mapper(this.entityToMap, entity.toJSON());
+    return mapper(this.entityToMap, entity);
   }
 
   async create(entity) {
     entity = mapper(this.entityToMap, entity);
     const createdEntity = await this._entityRepository.create(entity);
-    return mapper(this.entityToMap, createdEntity.toJSON());
+    return mapper(this.entityToMap, createdEntity);
   }
 
   async update(id, entity) {

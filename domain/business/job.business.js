@@ -1,9 +1,9 @@
 const BaseBusiness = require("./base.business");
-const { Trabajos } = require("../../dal/models");
+const { Trabajo } = require("../models/");
 
 class JobBusiness extends BaseBusiness {
   constructor({ JobRepository }) {
-    super(JobRepository, Trabajos);
+    super(JobRepository, Trabajo);
   }
 }
 

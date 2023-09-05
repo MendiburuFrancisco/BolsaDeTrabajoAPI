@@ -7,15 +7,15 @@ class JobRepository extends BaseRepository {
     super(db, "trabajos")
   }
 
-    async getAll() {
-      // try {
-        const elements = await this._db[this.model].findAll({ raw: true });
-        console.log(elements);
-        return elements;
-      // } catch (err) {
-      //   console.error(err);
-      // }
-    }
+    // async getAll() {
+    //   // try {
+    //     const elements = await this._db[this.model].findAll({ raw: true });
+    //     console.log(elements);
+    //     return elements;
+    //   // } catch (err) {
+    //   //   console.error(err);
+    //   // }
+    // }
 
    
     
