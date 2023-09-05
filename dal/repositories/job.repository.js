@@ -4,16 +4,20 @@ class JobRepository extends BaseRepository {
 
   constructor({db}) {
     // this._db = db;
-    super(db, "Job")
+    super(db, "trabajos")
   }
 
-    // async getAll() {
-    //     return await this._db.Job.findAll();
-    // }
+    async getAll() {
+      // try {
+        const elements = await this._db[this.model].findAll({ raw: true });
+        console.log(elements);
+        return elements;
+      // } catch (err) {
+      //   console.error(err);
+      // }
+    }
 
-    // async create(job) {
-    //     return await this._db.Job.create(job);
-    // }
+   
     
 }
 

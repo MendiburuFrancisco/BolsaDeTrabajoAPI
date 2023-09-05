@@ -5,11 +5,7 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'usuarios',
-        key: 'id'
-      }
+      primaryKey: true
     },
     id_tipo_trabajo: {
       type: DataTypes.INTEGER,
@@ -62,7 +58,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     sequelize,
     tableName: 'trabajos',
-    timestamps: true,
+    timestamps: false,
     indexes: [
       {
         name: "PRIMARY",

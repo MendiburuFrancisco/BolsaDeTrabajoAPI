@@ -16,6 +16,7 @@ const container = createContainer();
 const config = require("../configs/enviroments/")
 
 const db = require('../dal/models')
+// const db = require('../dal/models')
 
 
 

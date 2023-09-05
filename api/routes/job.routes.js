@@ -5,7 +5,7 @@ module.exports  =  function( { JobController } ) {
     
     router.get('/', JobController.getAll.bind(JobController));
     // router.get('/jobs/:id', getJob);
-    // router.post('/jobs/create', createJob);
+    router.post('/create', JobController.create.bind(JobController));
     // router.put('/jobs/:id', updateJob);
     // router.delete('/jobs/:id', deleteJob);
 

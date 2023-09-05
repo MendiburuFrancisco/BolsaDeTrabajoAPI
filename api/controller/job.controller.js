@@ -17,15 +17,35 @@ class JobController {
         res.send("Hello World");
     }
  
-    getAll(req, res) {
-        // res.send("Get All Jobs");
-        const jobs = this._jobService.getAll();
-        return res.send({
-            error: false,
-            payload: jobs
-        })
-        ; 
+    async getAll(req, res) {
+        try {
+            let jobs = await this._jobService.getAll();
+            return res.send({
+                payload: jobs
+            });
+        } catch (error) {
+            console.error(error);
+            return res.status(500).send({
+                error: 'Hubo un error al obtener los trabajos'
+            });
+        }
     }
+
+    async create(req, res) {
+        try {
+            const {body} = req;
+            let job = await this._jobService.create(body);
+            return res.send({
+                payload: job
+            });
+        } catch (error) {
+            console.error(error);
+            return res.status(500).send({
+                error: 'Hubo un error al obtener los trabajos'
+            });
+        }
+    }
+
 
 
     async getJobsFromScrapper(req, res) {
