@@ -17,7 +17,17 @@ class JobRepository extends BaseRepository {
     //   // }
     // }
 
-   
+    async getAll() {
+      const elements = await this._db[this.model].findAll({
+        raw: true,
+        include: [{
+          model: this._db.tipo_trabajo,
+          as: 'tipoTrabajo'
+        }]
+      });
+      console.log(elements)
+      return elements;
+    }
     
 }
 

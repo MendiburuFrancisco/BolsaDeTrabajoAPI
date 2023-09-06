@@ -1,6 +1,7 @@
-const Sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
+
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('trabajos', {
+  const Trabajo = sequelize.define('trabajos', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
@@ -9,7 +10,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_tipo_trabajo: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'tipo_trabajo',
+        key: 'id'
+      }
     },
     id_usuario: {
       type: DataTypes.INTEGER.UNSIGNED,
@@ -77,4 +82,13 @@ module.exports = function(sequelize, DataTypes) {
       },
     ]
   });
+  
+  Trabajo.associate = function(models) {
+    Trabajo.belongsTo(models.tipo_trabajo, {
+      foreignKey: 'id_tipo_trabajo',
+      as: 'tipoTrabajo'
+    });
+  };
+  
+  return Trabajo;
 };
