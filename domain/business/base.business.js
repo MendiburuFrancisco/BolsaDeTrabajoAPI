@@ -14,13 +14,13 @@ class BaseBusiness {
   async get(id) {
     const entity = await this._entityRepository.get(id);
     if (!entity) return null;
-    return mapper(this.entityToMap, entity);
+    return mapper(this.entityToMap, entity.toJSON());
   }
 
   async create(entity) {
     entity = mapper(this.entityToMap, entity);
     const createdEntity = await this._entityRepository.create(entity);
-    return mapper(this.entityToMap, createdEntity);
+    return mapper(this.entityToMap, createdEntity.toJSON());
   }
 
   async update(id, entity) {

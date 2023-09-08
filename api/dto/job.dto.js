@@ -1,9 +1,11 @@
-class Trabajo {
+class JobDto {
+    
+  
     id = 0;
-    id_tipo_trabajo = 0;
-    id_usuario = null;
-    id_empresa = null;
-    titulo = null;
+    // id_tipo_trabajo = 0;
+    tipo = ""
+    // id_usuario = null;
+    // id_empresa = null;
     fecha_desde = null;
     fecha_hasta = null;
     descripcion = null;
@@ -12,7 +14,9 @@ class Trabajo {
     link = null;
     empresa = null;
     nivel_experiencia = null;
-  }
+    // createdAt = null;
+    // updatedAt = null;
+}
   
-module.exports = Trabajo;
+  module.exports = JobDto;
   

@@ -5,17 +5,20 @@ const Server = require('./server')
 const StartUp = require("./startup")
 const Routes = require("./routes/")
 
-const { JobService } = require('../services/database/');
+const { JobService, JobInformationService } = require('../services/database/');
 const { JobController } = require('./controller/');
-const JobRoutes  = require("./routes/job.routes")
-const { JobBusiness }  = require('../domain/business/')
-const { JobRepository }  = require('../dal/repositories/')
+const { JobBusiness, JobInformationBusiness  }  = require('../domain/business/')
+const { JobRepository, JobInformationRepository }  = require('../dal/repositories/')
 
+
+
+const JobRoutes  = require("./routes/job.routes")
 
 const container = createContainer();
 const config = require("../configs/enviroments/")
 
 const db = require('../dal/models')
+const ScrapperController = require("../services/scrapper/Scrapper.controller");
 // const db = require('../dal/models')
 
 
@@ -27,7 +30,9 @@ container
         server: asClass(Server).singleton(),
         
         JobRoutes: asFunction(JobRoutes).singleton(),
-        JobController: asClass(JobController).singleton()
+        JobController: asClass(JobController).singleton(),
+
+        ScrapperController: asClass(ScrapperController).singleton()
         
         // UserRoutes: asFunction(UserRoutes).singleton()
         // ...
@@ -39,19 +44,20 @@ container
         db: asValue(db)
     })
     .register({
-        JobService: asClass(JobService).singleton()
-        // UserService: asClass(UserService).singleton()
+        JobService: asClass(JobService).singleton(),
+        JobInformationService: asClass(JobInformationService).singleton()
         // ...
     })
 
     .register({
-        JobRepository: asClass(JobRepository).singleton()
-        // UserRepository: asClass(UserRepository).singleton()
+        JobRepository: asClass(JobRepository).singleton(),
+        JobInformationRepository: asClass(JobInformationRepository).singleton()
+
         // ...
     })
     .register({
-        JobBusiness: asClass(JobBusiness).singleton()
-        // UserBusiness: asClass(UserBusiness).singleton()
+        JobBusiness: asClass(JobBusiness).singleton(),
+        JobInformationBusiness: asClass(JobInformationBusiness).singleton()
         // ...
     })
  

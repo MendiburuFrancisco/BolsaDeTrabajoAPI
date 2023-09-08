@@ -22,13 +22,23 @@ class JobRepository extends BaseRepository {
         raw: true,
         include: [{
           model: this._db.tipo_trabajo,
-          as: 'tipoTrabajo'
+          as: 'tipoTrabajo',
+          attributes: ['tipo']
         }]
+        // attributes:{
+        //   exclude: ['id_tipo_trabajo','id_usuario', 'id_empresa']
+        // } 
       });
       console.log(elements)
       return elements;
     }
     
+    async createVerifiedJob(job) {
+      job.id_empresa = 1; 
+      
+      const element = await this._db[this.model].create(job);
+      return element;
+    }
 }
 
 module.exports = JobRepository;

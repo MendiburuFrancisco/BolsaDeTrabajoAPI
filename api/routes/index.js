@@ -1,9 +1,11 @@
 const express = require('express');
+const BaseRoutes  = require('./base.routes'); 
+
 // const cors = require("cors")
 // const compression = require('compression');
 
 
-module.exports = function( { JobRoutes } ) {
+module.exports = function( { JobController } ) {
     const router = express.Router();
     const apiRoute = express.Router();
 
@@ -15,9 +17,9 @@ module.exports = function( { JobRoutes } ) {
         ;
 
     router.use('/', apiRoute);
-    apiRoute.use('/jobs', JobRoutes);
-    // /jobs
-    
+    // apiRoute.use('/jobs', JobRoutes);
+    apiRoute.use('/jobs', new BaseRoutes({ Controller: JobController }).getRouter());
+    // apiRoute.use('user')
     
 
     return router;
