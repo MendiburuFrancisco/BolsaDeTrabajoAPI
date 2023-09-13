@@ -19,19 +19,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    legajo: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-      unique: "legajo_UNIQUE"
-    },
-    email: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
-    password: {
-      type: DataTypes.STRING(255),
-      allowNull: false
-    },
     nombre: {
       type: DataTypes.STRING(255),
       allowNull: false
@@ -40,13 +27,23 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: false
     },
+    legajo: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      unique: "legajo_UNIQUE"
+    },
+    email: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      unique: "email_UNIQUE"
+    },
+    password: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
     verified: {
       type: DataTypes.BOOLEAN,
       allowNull: false
-    },
-    dni: {
-      type: DataTypes.STRING(255),
-      allowNull: true
     },
     remember_token: {
       type: DataTypes.STRING(100),
@@ -75,6 +72,14 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "legajo" },
+        ]
+      },
+      {
+        name: "email_UNIQUE",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "email" },
         ]
       },
       {

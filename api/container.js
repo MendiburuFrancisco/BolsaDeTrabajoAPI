@@ -5,10 +5,13 @@ const Server = require('./server')
 const StartUp = require("./startup")
 const Routes = require("./routes/")
 
-const { JobService, JobInformationService } = require('../services/database/');
-const { JobController } = require('./controller/');
-const { JobBusiness, JobInformationBusiness  }  = require('../domain/business/')
-const { JobRepository, JobInformationRepository }  = require('../dal/repositories/')
+const { JobService, JobInformationService, MajorService, UserService } = require('../services/database/');
+const { JobController,MajorController, UserController } = require('./controller/');
+const { JobBusiness, JobInformationBusiness, MajorBusiness, UserBusiness  }  = require('../domain/business/')
+
+
+
+const { JobRepository, JobInformationRepository,MajorRepository, UserRepository }  = require('../dal/repositories/')
 
 
 
@@ -30,8 +33,10 @@ container
         server: asClass(Server).singleton(),
         
         JobRoutes: asFunction(JobRoutes).singleton(),
+        
         JobController: asClass(JobController).singleton(),
-
+        MajorController: asClass(MajorController).singleton(),
+        UserController: asClass(UserController).singleton(),
         ScrapperController: asClass(ScrapperController).singleton()
         
         // UserRoutes: asFunction(UserRoutes).singleton()
@@ -45,19 +50,24 @@ container
     })
     .register({
         JobService: asClass(JobService).singleton(),
-        JobInformationService: asClass(JobInformationService).singleton()
+        JobInformationService: asClass(JobInformationService).singleton(),
+        MajorService: asClass(MajorService).singleton(),
+        UserService: asClass(UserService).singleton(),
         // ...
     })
 
     .register({
         JobRepository: asClass(JobRepository).singleton(),
-        JobInformationRepository: asClass(JobInformationRepository).singleton()
-
+        JobInformationRepository: asClass(JobInformationRepository).singleton(),
+        MajorRepository: asClass(MajorRepository).singleton(),
+        UserRepository: asClass(UserRepository).singleton(),
         // ...
     })
     .register({
         JobBusiness: asClass(JobBusiness).singleton(),
-        JobInformationBusiness: asClass(JobInformationBusiness).singleton()
+        JobInformationBusiness: asClass(JobInformationBusiness).singleton(),
+        MajorBusiness: asClass(MajorBusiness).singleton(),
+        UserBusiness: asClass(UserBusiness).singleton(),
         // ...
     })
  

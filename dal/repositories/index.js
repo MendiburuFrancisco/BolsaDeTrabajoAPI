@@ -1,10 +1,26 @@
+const  BaseRepository  = require("./base.repository");
 
-module.exports = {
-    JobRepository: require("./job.repository"),
-     UserRepository: require("./user.repository"),
-    JobInformationRepository: require("./jobInformation.repository"),
-    // SectionRepository: require("./section.repository"),
-    // CourseRepository: require("./course.repository"),
-    // RegistrationRepository: require("./registration.repository")
-  };
+let DB = (db) => {
+  return db;
+}
+
+// module.exports = (db) => {
+//   return {
+//     JobRepository: require("./job.repository"),
+//     JobInformationRepository: require("./jobInformation.repository"),
+//     MajorRepository: require("./major.repository"),
+//     // UserRepository: require("./user.repository"),
+//     UserRepository: new BaseRepository(DB, "usuarios"),
+//   };
+// }
+
   
+module.exports =  {
+ 
+    JobRepository: require("./job.repository"),
+    JobInformationRepository: require("./jobInformation.repository"),
+    MajorRepository: require("./major.repository"),
+    UserRepository: require("./user.repository"),
+    // UserRepository: new BaseRepository(  DB,"usuarios"  ),
+  };
+ 

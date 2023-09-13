@@ -1,7 +1,6 @@
-// const Sequelize = require('sequelize');
-
+const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  const Trabajo = sequelize.define('trabajos', {
+  return sequelize.define('trabajos', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
@@ -18,7 +17,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_usuario: {
       type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: true
+      allowNull: false,
+      references: {
+        model: 'usuarios',
+        key: 'id'
+      }
     },
     id_empresa: {
       type: DataTypes.INTEGER.UNSIGNED,
@@ -27,6 +30,18 @@ module.exports = function(sequelize, DataTypes) {
         model: 'empresas',
         key: 'id'
       }
+    },
+    id_admin: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: true,
+      references: {
+        model: 'usuarios',
+        key: 'id'
+      }
+    },
+    titulo: {
+      type: DataTypes.STRING(255),
+      allowNull: false
     },
     fecha_desde: {
       type: DataTypes.DATEONLY,
@@ -59,11 +74,19 @@ module.exports = function(sequelize, DataTypes) {
     nivel_experiencia: {
       type: DataTypes.STRING(255),
       allowNull: true
+    },
+    chequeado: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    chequeadoAt: {
+      type: DataTypes.STRING(45),
+      allowNull: true
     }
   }, {
     sequelize,
     tableName: 'trabajos',
-    timestamps: false,
+    timestamps: true,
     indexes: [
       {
         name: "PRIMARY",
@@ -80,15 +103,27 @@ module.exports = function(sequelize, DataTypes) {
           { name: "id_empresa" },
         ]
       },
+      {
+        name: "trabajo_usuario_idx",
+        using: "BTREE",
+        fields: [
+          { name: "id_usuario" },
+        ]
+      },
+      {
+        name: "trabajo_admin_revision_idx",
+        using: "BTREE",
+        fields: [
+          { name: "id_admin" },
+        ]
+      },
+      {
+        name: "trabajo_tipo_trabajo_idx",
+        using: "BTREE",
+        fields: [
+          { name: "id_tipo_trabajo" },
+        ]
+      },
     ]
   });
-  
-  Trabajo.associate = function(models) {
-    Trabajo.belongsTo(models.tipo_trabajo, {
-      foreignKey: 'id_tipo_trabajo',
-      as: 'tipoTrabajo'
-    });
-  };
-  
-  return Trabajo;
 };

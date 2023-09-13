@@ -2,15 +2,16 @@ const configs = require("../../configs/enviroments");
 const mapper = require("automapper-js");
 
 class BaseController {
-  constructor({ Service }) {
+  constructor({ Service, entityDto }) {
     this._service = Service;
+    this.entityDto = entityDto;
   }
 
   async getAll(req, res) {
     try {
-      let jobs = await this._service.getAll();
+      let items = await this._service.getAll();
       return res.send({
-        payload: jobs,
+        payload: items,
       });
     } catch (error) {
       console.error(error);
@@ -39,26 +40,43 @@ class BaseController {
   }
 
   async create(req, res) {
-    const { body } = req;
-    const createdentity = await this._service.create(body);
-    // const entity = mapper(entityDto, createdentity);
-    return res.status(201).send({
-      payload: createdentity,
-    });
+
+    try{
+      const { body } = req;
+      const createdentity = await this._service.create(body);
+      const entity = mapper(this.entityDto, createdentity);
+      return res.status(201).send({
+        payload: entity,
+      });
+
+    } catch(error){
+      console.error(error);
+      return res.status(500).send({
+        error: "Hubo un error al crear el elemento",
+      });
+    }
   }
 
   async update(req, res) {
     const { body } = req;
     const { id } = req.params;
 
+    delete body.id;
+     
     await this._service.update(id, body);
-    return res.status(204).send();
+    return res.status(202).send({
+      payload: "Se actualizo correctamente",
+    });
   }
 
   async delete(req, res) {
     const { id } = req.params;
     await this._service.delete(id);
-    return res.status(204).send();
+    return res.status(202).send(
+      {
+        payload: "Se elimno correctamente",
+      }
+    );
   }
 }
 

@@ -1,12 +1,12 @@
 
 
 const BaseBusiness = require("./base.business");
-// const {  } = require("../../dal/models");
+const   { Usuario }   = require("../models");
 
 class UserBusiness extends BaseBusiness {
-  // constructor({ JobRepository }) {
-    // super(JobRepository, Trabajos);
-  // }
+  constructor({ UserRepository }) {
+    super(UserRepository, Usuario);
+  }
 }
 
 module.exports = UserBusiness;

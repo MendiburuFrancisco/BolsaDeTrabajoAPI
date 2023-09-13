@@ -11,8 +11,8 @@ class BaseRoutes {
     this.router.get('/', this.Controller.getAll.bind(this.Controller));
     this.router.post('/', this.Controller.create.bind(this.Controller));
     this.router.get('/:id', this.Controller.get.bind(this.Controller));
-    // this.router.put('/:id', this.Controller.update.bind(this.Controller));
-    // this.router.delete('/:id', this.Controller.delete.bind(this.Controller));
+    this.router.put('/:id', this.Controller.update.bind(this.Controller));
+    this.router.delete('/:id', this.Controller.delete.bind(this.Controller));
   }
   
   getRouter() {

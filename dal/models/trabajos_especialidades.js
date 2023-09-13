@@ -1,15 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('postulaciones', {
-    id_usuario: {
-      type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: false,
-      primaryKey: true,
-      references: {
-        model: 'usuarios',
-        key: 'id'
-      }
-    },
+  return sequelize.define('trabajos_especialidades', {
     id_trabajo: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
@@ -18,26 +9,35 @@ module.exports = function(sequelize, DataTypes) {
         model: 'trabajos',
         key: 'id'
       }
+    },
+    id_especialidad: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      references: {
+        model: 'especialidades',
+        key: 'id'
+      }
     }
   }, {
     sequelize,
-    tableName: 'postulaciones',
-    timestamps: true,
+    tableName: 'trabajos_especialidades',
+    timestamps: false,
     indexes: [
       {
         name: "PRIMARY",
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_usuario" },
           { name: "id_trabajo" },
+          { name: "id_especialidad" },
         ]
       },
       {
-        name: "postulacoines_trabajo_idx",
+        name: "te_especialidades_idx",
         using: "BTREE",
         fields: [
-          { name: "id_trabajo" },
+          { name: "id_especialidad" },
         ]
       },
     ]

@@ -1,6 +1,6 @@
 module.exports = {
     JobDto: require("./job.dto"),
-    // UserDto: require("./user.dto"),
+    MajorDto: require("./major.dto"),
     // CompanyDto: require("./company.dto"),
     // JobInformationDto: require("./jobInformation.dto"),
     // JobTypeDto: require("./jobType.dto"),
