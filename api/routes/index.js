@@ -5,7 +5,7 @@ const BaseRoutes  = require('./base.routes');
 // const compression = require('compression');
 
 
-module.exports = function( { JobController,MajorController,UserController } ) {
+module.exports = function( { JobController,MajorController,UserController,ApplicationController } ) {
     const router = express.Router();
     const apiRoute = express.Router();
 
@@ -21,6 +21,7 @@ module.exports = function( { JobController,MajorController,UserController } ) {
     apiRoute.use('/jobs', new BaseRoutes({ Controller: JobController }).getRouter());
     apiRoute.use('/majors', new BaseRoutes({ Controller: MajorController }).getRouter());
     apiRoute.use('/users', new BaseRoutes({ Controller: UserController }).getRouter());
+    apiRoute.use('/applications', new BaseRoutes({ Controller: ApplicationController }).getRouter());
     
     // apiRoute.use('user')
     

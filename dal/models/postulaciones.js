@@ -18,11 +18,16 @@ module.exports = function(sequelize, DataTypes) {
         model: 'trabajos',
         key: 'id'
       }
-    }
+    },
+    createdAt: {
+      type: DataTypes.DATEONLY,
+      allowNull: true,
+      primaryKey: false,
+    },
   }, {
     sequelize,
     tableName: 'postulaciones',
-    timestamps: true,
+    timestamps: false,
     indexes: [
       {
         name: "PRIMARY",
