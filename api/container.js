@@ -5,13 +5,30 @@ const Server = require('./server')
 const StartUp = require("./startup")
 const Routes = require("./routes/")
 
-const { JobService, JobInformationService, MajorService, UserService, ApplicationService } = require('../services/database/');
-const { JobController,MajorController, UserController, ApplicationController } = require('./controller/');
-const { JobBusiness, JobInformationBusiness, MajorBusiness, UserBusiness, ApplicationBusiness  }  = require('../domain/business/')
+const { JobService, 
+        JobInformationService, 
+        MajorService, 
+        UserService, 
+        ApplicationService } = require('../services/database/');
 
+const { JobController,
+        MajorController, 
+        UserController, 
+        ApplicationController } = require('./controller/');
 
+const   ScrapperController = require("../services/scrapper/Scrapper.controller");
 
-const { JobRepository, JobInformationRepository,MajorRepository, UserRepository, ApplicationRepository }  = require('../dal/repositories/')
+const { JobBusiness, 
+        JobInformationBusiness, 
+        MajorBusiness, 
+        UserBusiness,
+        ApplicationBusiness  }  = require('../domain/business/')
+
+const { JobRepository, 
+        JobInformationRepository,
+        MajorRepository, 
+        UserRepository, 
+        ApplicationRepository }  = require('../dal/repositories/')
 
 
 
@@ -21,7 +38,6 @@ const container = createContainer();
 const config = require("../configs/enviroments/")
 
 const db = require('../dal/models')
-const ScrapperController = require("../services/scrapper/Scrapper.controller");
 // const db = require('../dal/models')
 
 
@@ -32,7 +48,7 @@ container
         router: asFunction(Routes).singleton(),
         server: asClass(Server).singleton(),
         
-        JobRoutes: asFunction(JobRoutes).singleton(),
+        // JobRoutes: asFunction(JobRoutes).singleton(),
 
         JobController: asClass(JobController).singleton(),
         MajorController: asClass(MajorController).singleton(),
@@ -59,12 +75,13 @@ container
     })
 
     .register({
+        
         JobRepository: asClass(JobRepository).singleton(),
         JobInformationRepository: asClass(JobInformationRepository).singleton(),
         MajorRepository: asClass(MajorRepository).singleton(),
         UserRepository: asClass(UserRepository).singleton(),
         ApplicationRepository: asClass(ApplicationRepository).singleton(),
-        // ...
+        
     })
     .register({
         JobBusiness: asClass(JobBusiness).singleton(),

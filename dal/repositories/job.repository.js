@@ -24,7 +24,14 @@ class JobRepository extends BaseRepository {
           model: this._db.tipo_trabajo,
           as: 'tipoTrabajo',
           attributes: ['tipo']
-        }]
+        },
+      {
+        model: this._db.usuarios,
+        as: 'id_usuario_usuario',
+        attributes: ['nombre', 'apellido']
+
+      }
+      ]
         // attributes:{
         //   exclude: ['id_tipo_trabajo','id_usuario', 'id_empresa']
         // } 

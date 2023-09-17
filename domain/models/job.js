@@ -1,8 +1,8 @@
 class Trabajo {
   id = 0;
   id_tipo_trabajo = 0;
-  id_usuario = null;
-  id_empresa = null;
+  id_usuario = 0;
+  id_empresa = 0;
   fecha_desde = null;
   fecha_hasta = null;
   descripcion = null;
@@ -13,6 +13,8 @@ class Trabajo {
   nivel_experiencia = null;
   createdAt = null;
   updatedAt = null;
+  checkeado = null;
+  
 }
 
 module.exports = Trabajo;
