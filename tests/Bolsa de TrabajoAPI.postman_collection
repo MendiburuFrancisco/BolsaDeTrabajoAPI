@@ -1,0 +1,507 @@
+{
+	"info": {
+		"_postman_id": "f2c2c99b-83ef-49de-80c7-3a18fcbc0a2b",
+		"name": "API - Bolsa de Trabajo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26617777"
+	},
+	"item": [
+		{
+			"name": "Trabajos",
+			"item": [
+				{
+					"name": "Get all trabajos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/jobs/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"jobs",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one trabajo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/jobs/15",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"jobs",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete trabajo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/jobs/14",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"jobs",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store trabajo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":0,\r\n    \"id_usuario\":1,\r\n    \"id_tipo_trabajo\": 1,\r\n    \"titulo\": \"{{$randomJobTitle}}\",\r\n    \"fecha_desde\": \"2023-09-07\",\r\n    \"fecha_hasta\": \"2023-09-12\",\r\n    \"descripcion\": \"{{$randomJobDescriptor}}\",\r\n    \"sueldo\": {{$randomInt}},\r\n    \"ubicacion\": \"{{$randomStreetAddress}}\",\r\n    \"empresa\": \"{{$randomCompanyName}}\",\r\n    \"nivel_experiencia\": \"{{$randomLoremWord}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/jobs",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save trabajo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":22,\r\n    \"id_tipo_trabajo\": 2,\r\n    \"titulo\": \"{{$randomJobTitle}}\",\r\n    \"fecha_desde\": \"2023-09-07\",\r\n    \"fecha_hasta\": \"2023-09-12\",\r\n    \"descripcion\": \"{{$randomJobDescriptor}}\",\r\n    \"sueldo\": {{$randomInt}},\r\n    \"ubicacion\": \"{{$randomStreetAddress}}\",\r\n    \"empresa\": \"{{$randomCompanyName}}\",\r\n    \"nivel_experiencia\": \"{{$randomLoremWord}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/jobs/11",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"jobs",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Especialidades",
+			"item": [
+				{
+					"name": "Get all especialidades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/{{especialidades}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{especialidades}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one especialidad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/{{especialidades}}/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{especialidades}}",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete especialidad",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/{{especialidades}}/202",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{especialidades}}",
+								"202"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store especialidad",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":0,\r\n    \"tipo\": \"{{$randomLoremWords}}\",\r\n    \"anio_plan\": \"{{$randomInt}}\",\r\n    \"descripcion\": \"{{$randomLoremWords}}\",\r\n    \"titulo_final\": \"{{$randomLoremWords}}\",\r\n    \"titulo_intermedio\": \"{{$randomLoremWord}}\",\r\n    \"abreviatura\": \"{{$randomAbbreviation}}\"\r\n}\r\n\r\n  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/{{especialidades}}/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{especialidades}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save especialidad",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":0,\r\n    \"tipo\": 2,\r\n    \"anio_plan\": \"{{$randomJobDescriptor}}\",\r\n    \"descripcion\": {{$randomInt}},\r\n    \"titulo_final\": \"{{$randomStreetAddress}}\",\r\n    \"titulo_intermedio\": \"{{$randomCompanyName}}\",\r\n    \"abreviatura\": \"{{$randomLoremWord}}\"\r\n}\r\n\r\n  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/{{especialidades}}/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"{{especialidades}}",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Get all usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{usuarios}}",
+							"host": [
+								"{{usuarios}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{usuarios}}/11",
+							"host": [
+								"{{usuarios}}"
+							],
+							"path": [
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete usuarios",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{usuarios}}/8",
+							"host": [
+								"{{usuarios}}"
+							],
+							"path": [
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":0,\r\n    \"id_role\": 2,\r\n    \"nombre\": \"Jose\",\r\n    \"apellido\": \"Sanchez\",\r\n    \"legajo\": \"442218\",\r\n    \"email\": \"JSanchez@frro.utn.edu.ar\",\r\n    \"password\": \"12345\",\r\n    \"verified\": \"1\"\r\n    // \"remember_token\": \"{{$randomAbbreviation}}\",\r\n    // \"email_veried_at\": \"{{$randomAbbreviation}}\",\r\n    // \"createdAt\": \"{{$randomAbbreviation}}\",\r\n    // \"updatedAt\": \"{{$randomAbbreviation}}\"\r\n}\r\n\r\n  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{usuarios}}/",
+							"host": [
+								"{{usuarios}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save usuarios",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"nombre\": \"Francisco\",\r\n    \"apellido\": \"Mendiburu\",\r\n    \"legajo\": \"47218\",\r\n    \"email\": \"FMendiburu@frro.utn.edu.ar\",\r\n    \"password\": \"12344\",\r\n    \"verified\": \"1\"\r\n    // \"remember_token\": \"{{$randomAbbreviation}}\",\r\n    // \"email_veried_at\": \"{{$randomAbbreviation}}\",\r\n    // \"createdAt\": \"{{$randomAbbreviation}}\",\r\n    // \"updatedAt\": \"{{$randomAbbreviation}}\"\r\n}\r\n\r\n  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{usuarios}}/1",
+							"host": [
+								"{{usuarios}}"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Postulaciones",
+			"item": [
+				{
+					"name": "Get all postulaciones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/applications",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one postulacion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{usuarios}}/11",
+							"host": [
+								"{{usuarios}}"
+							],
+							"path": [
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete postulacion",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{usuarios}}/8",
+							"host": [
+								"{{usuarios}}"
+							],
+							"path": [
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store postulacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_usuario\":3,\r\n    \"id_trabajo\": 15\r\n \r\n}\r\n\r\n  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/applications",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save postulacion",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"nombre\": \"Francisco\",\r\n    \"apellido\": \"Mendiburu\",\r\n    \"legajo\": \"47218\",\r\n    \"email\": \"FMendiburu@frro.utn.edu.ar\",\r\n    \"password\": \"12344\",\r\n    \"verified\": \"1\"\r\n    // \"remember_token\": \"{{$randomAbbreviation}}\",\r\n    // \"email_veried_at\": \"{{$randomAbbreviation}}\",\r\n    // \"createdAt\": \"{{$randomAbbreviation}}\",\r\n    // \"updatedAt\": \"{{$randomAbbreviation}}\"\r\n}\r\n\r\n  ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{usuarios}}/1",
+							"host": [
+								"{{usuarios}}"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Administradores",
+			"item": []
+		},
+		{
+			"name": "Validar Datos Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/login/Fmendiburu/Password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"login",
+						"Fmendiburu",
+						"Password"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:8888"
+		},
+		{
+			"key": "especialidades",
+			"value": "majors"
+		},
+		{
+			"key": "usuarios",
+			"value": "{{URL}}/users",
+			"type": "string"
+		}
+	]
+}
