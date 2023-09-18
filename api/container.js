@@ -9,12 +9,15 @@ const { JobService,
         JobInformationService, 
         MajorService, 
         UserService, 
-        ApplicationService } = require('../services/database/');
+        ApplicationService,
+        AuthLoginService } = require('../services/database/');
 
 const { JobController,
         MajorController, 
         UserController, 
-        ApplicationController } = require('./controller/');
+        ApplicationController,
+        
+        AuthLoginController } = require('./controller/');
 
 const   ScrapperController = require("../services/scrapper/Scrapper.controller");
 
@@ -32,7 +35,7 @@ const { JobRepository,
 
 
 
-const JobRoutes  = require("./routes/job.routes")
+const AuthRoutes  = require("./routes/auth.routes")
 
 const container = createContainer();
 const config = require("../configs/enviroments/")
@@ -48,13 +51,14 @@ container
         router: asFunction(Routes).singleton(),
         server: asClass(Server).singleton(),
         
-        // JobRoutes: asFunction(JobRoutes).singleton(),
+        AuthRoutes: asFunction(AuthRoutes).singleton(),
 
         JobController: asClass(JobController).singleton(),
         MajorController: asClass(MajorController).singleton(),
         UserController: asClass(UserController).singleton(),
         ApplicationController: asClass(ApplicationController).singleton(),
-        ScrapperController: asClass(ScrapperController).singleton()
+        ScrapperController: asClass(ScrapperController).singleton(),
+        AuthLoginController: asClass(AuthLoginController).singleton(),
         
         // UserRoutes: asFunction(UserRoutes).singleton()
         // ...
@@ -71,6 +75,7 @@ container
         MajorService: asClass(MajorService).singleton(),
         UserService: asClass(UserService).singleton(),
         ApplicationService: asClass(ApplicationService).singleton(),
+        AuthLoginService: asClass(AuthLoginService).singleton(),
         // ...
     })
 
