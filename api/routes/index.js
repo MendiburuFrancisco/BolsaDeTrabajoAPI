@@ -25,7 +25,7 @@ module.exports = function( { JobController,MajorController,UserController,Applic
     apiRoute.use('/majors', new BaseRoutes({ Controller: MajorController }).getRouter());
     apiRoute.use('/users', new BaseRoutes({ Controller: UserController }).getRouter());
     apiRoute.use('/applications', new BaseRoutes({ Controller: ApplicationController }).getRouter());
-    // apiRoute.use('/auth',  router.post("/",AuthLoginController.login.bind(AuthLoginController) ));
+    // apiRoute.use('/auth',  router.post("/",AuthController.login.bind(AuthController) ));
     
 
     return router;
