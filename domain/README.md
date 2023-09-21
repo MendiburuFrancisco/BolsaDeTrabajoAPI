@@ -8,7 +8,7 @@ Los conceptos del dominio se modelan utilizando clases y estructuras que represe
 
 ## Modelos (Models)
 
-En esta capa también se encuentran los modelos, pero estos modelos representan las entidades de tu dominio en lugar de las entidades de la base de datos. 
+En esta capa también se encuentran los modelos, pero estos modelos representan las entidades del dominio en lugar de las entidades de la base de datos. 
 
 Estos modelos a menudo incluyen métodos y comportamientos que son específicos del dominio y no están relacionados con la persistencia de datos. 
 

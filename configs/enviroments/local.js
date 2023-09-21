@@ -15,5 +15,9 @@ module.exports = {
         password: process.env.SCRAP_PASS,
         clave: process.env.SCRAP_USERTYPE,
 
+    },
+    TOKEN : {
+        secret: process.env.TOKEN_SECRET,
+        refreshSecret: process.env.TOKEN_REFRESH_SECRET,
     }
 }

@@ -1,10 +1,8 @@
 const { LoginDto } = require("../dto");
 
 class AuthController {
-  constructor({ AuthService }) {
-    //     // super(AuthService, LoginDto);
-    this._service = AuthService;
-    //     this.entityDto = LoginDTO;
+  constructor({ AuthService }) { 
+    this._service = AuthService; 
   }
 
 
@@ -21,18 +19,9 @@ class AuthController {
         payload: Login,
       });
     } catch (error) {
-      console.error(error);
-      switch (error.message) {
-        case "Usuario no encontrado":
-          return res.status(404).send({ error: error.message });
-        case "Contraseña incorrecta":
-          return res.status(401).send({ error: error.message });
-
-        default:
-          return res
-            .status(500)
-            .send({ error: "Hubo un error al intentar loguearse" });
-      }
+      return res.status(error.status).send({
+        error: error.message,
+      });
     }
   }
 
@@ -45,18 +34,9 @@ class AuthController {
     });
   }
   catch(error) {
-    console.error(error);
+   
     return res.status(500).send({ error: error.message });
-    // switch (error.message) {
-    //   case "Usuario no encontrado":
-    //     return res.status(404).send({ error: error.message });
-    //   case "Contraseña incorrecta":
-    //     return res.status(401).send({ error: error.message });
-
-    //   default:
-    //     return res
-    //       .status(500)
-    //       .send({ error: "Hubo un error al intentar registrarse" });
+ 
     }
   }
   // }

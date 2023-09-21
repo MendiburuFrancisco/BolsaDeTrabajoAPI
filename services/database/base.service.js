@@ -1,6 +1,25 @@
+const CustomError = require("../../domain/errors/custom.error");
+
 class BaseService {
   constructor(EntityBusiness) {
     this._entityBusiness = EntityBusiness;
+  }
+
+  handlerError(error, mensaje) {
+
+
+
+
+    switch (error) {
+      case "SequelizeUniqueConstraintError":
+      case "SequelizeValidationError":
+      case "SequelizeInvalidArgumentError":
+        return CustomError.badRequest(mensaje);
+      case "SequelizeForeignKeyConstraintError":
+        return CustomError.badRequest("No existe el elemento de la tabla a la hace referencia");
+      default:
+        return CustomError.internalServer(mensaje);
+    }
   }
 
   async getAll() {
@@ -14,13 +33,29 @@ class BaseService {
   }
 
   async create(entity) {
-    const createdEntity = await this._entityBusiness.create(entity);
-    return createdEntity;
+    try {
+      const createdEntity = await this._entityBusiness.create(entity);
+      return createdEntity;
+    } catch (error) {
+      if (error instanceof CustomError) throw error;
+      if ( error?.errors[0]) throw this.handlerError(error.name, error.errors[0].message);
+      throw this.handlerError(error.name, error.message);
+    }
   }
 
+
+
   async update(id, entity) {
-    const updatedEntity = await this._entityBusiness.update(id, entity);
-    return updatedEntity;
+    try {
+      const updatedEntity = await this._entityBusiness.update(id, entity);
+      return updatedEntity;
+    } catch (error) {
+      if (error instanceof CustomError) throw error;
+      if (error?.parent?.sqlMessage) throw this.handlerError(error.name, error.parent.sqlMessage);
+      if ( error?.errors[0]) throw this.handlerError(error.name, error.errors[0].message);
+      
+      throw this.handlerError(error.name, error.message);
+    }
   }
 
   async delete(id) {

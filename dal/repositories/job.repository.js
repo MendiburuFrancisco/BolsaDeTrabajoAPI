@@ -36,7 +36,7 @@ class JobRepository extends BaseRepository {
         //   exclude: ['id_tipo_trabajo','id_usuario', 'id_empresa']
         // } 
       });
-      console.log(elements)
+      // console.log(elements)
       return elements;
     }
     
