@@ -14,6 +14,11 @@ class JwtAdapter {
     static verifyToken(token) {
         return jwt.verify(token, config.TOKEN.secret);
     }
+
+    static decodeToken(token) {
+        return jwt.decode(token, config.TOKEN.secret);
+    }
+    
 }
 
 module.exports = JwtAdapter;
