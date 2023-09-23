@@ -1,4 +1,4 @@
-const CustomError = require('../../domain/errors/custom.error');
+const CustomError = require('../../helpers/custom.error');
 
 class BaseRepository {
   constructor(db, model) {

@@ -1,3 +1,5 @@
+const CustomError = require("../../helpers/custom.error");
+
 
 class AuthService {
     constructor({ UserBusiness }) {
@@ -8,13 +10,13 @@ class AuthService {
         this._userBusiness.validateAuthLogin(body);
         const { email, password } = body;
         const user = await this._userBusiness.getByEmail(email);
-        if (!user) throw new Error("Usuario no encontrado");
+        if (!user) throw  CustomError.badRequest("El usuario no existe");
  
         if (await user.isPasswordValid(password)) return {
             "token": user.getToken()
             }
 
-        throw new Error("Creedenciales incorrectas");
+        throw CustomError.badRequest("Creedenciales incorrectas");
     }
 
     async register(body) {

@@ -1,8 +1,7 @@
 const mapper = require("automapper-js");
 const BaseBusiness = require("./base.business");
 const   { Usuario,AuthLogin }   = require("../models");
-// const CustomError = require("../../helpers/customError");
-const CustomError = require('../errors/custom.error');
+const CustomError = require('../../helpers/custom.error');
 
 class UserBusiness extends BaseBusiness {
   constructor({ UserRepository }) {

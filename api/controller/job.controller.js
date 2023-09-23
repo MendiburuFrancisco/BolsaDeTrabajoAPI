@@ -25,10 +25,7 @@ class JobController extends BaseController {
       const jobDto = JobDto.mappear_getAll(job);
       return jobDto;
     });
-
-    return res.send({
-      payload: jobs,
-    });
+    return res.send(jobs);
   }
 
   // async create(req, res) {

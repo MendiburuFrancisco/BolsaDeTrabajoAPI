@@ -1,4 +1,4 @@
-const CustomError = require("../../domain/errors/custom.error");
+const CustomError = require("../../helpers/custom.error");
 
 class BaseService {
   constructor(EntityBusiness) {

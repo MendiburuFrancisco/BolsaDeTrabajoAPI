@@ -19,9 +19,16 @@ class AuthController {
         payload: Login,
       });
     } catch (error) {
-      return res.status(error.status).send({
-        error: error.message,
-      });
+      if (error?.status){
+        return res.status(error.status).send({
+          error: error.message,
+        });
+      }
+      else{
+        return res.status(500).send({
+          error: error.message,
+        });
+      }
     }
   }
 
