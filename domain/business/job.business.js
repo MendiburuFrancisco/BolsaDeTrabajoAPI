@@ -5,7 +5,7 @@ const mapper = require("automapper-js");
 // const {  } = require("../../services/scrapper/Scrapper.controller");
 
 class JobBusiness extends BaseBusiness {
-  constructor({ JobRepository, ScrapperController }) {
+  constructor({ JobRepository}) {
     super(JobRepository, Trabajo);
     // this._scrapperController = ScrapperController;
     // this.last_update = null;
@@ -15,7 +15,7 @@ class JobBusiness extends BaseBusiness {
     if (this.last_update == null || Date.now() - this.last_update > 86400000) {
       this.last_update = Date.now();
       let createdJobs = [];
-      const jobs = await this._scrapperController.getJobs();
+      // const jobs = await this._scrapperController.getJobs();
       console.log("jobs", jobs);
       // await this._entityRepository.deleteAll();
 
