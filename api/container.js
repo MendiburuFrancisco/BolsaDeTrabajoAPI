@@ -19,7 +19,7 @@ const { JobController,
         
         AuthController } = require('./controller/');
 
-const   ScrapperController = require("../services/scrapper/Scrapper.controller");
+// const   ScrapperController = require("../services/scrapper/Scrapper.controller");
 
 const { JobBusiness, 
         JobInformationBusiness, 
@@ -57,7 +57,7 @@ container
         MajorController: asClass(MajorController).singleton(),
         UserController: asClass(UserController).singleton(),
         ApplicationController: asClass(ApplicationController).singleton(),
-        ScrapperController: asClass(ScrapperController).singleton(),
+        // ScrapperController: asClass(ScrapperController).singleton(),
         AuthController: asClass(AuthController).singleton(),
         
         // UserRoutes: asFunction(UserRoutes).singleton()
