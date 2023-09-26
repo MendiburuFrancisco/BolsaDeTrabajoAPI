@@ -19,7 +19,7 @@ module.exports = function( { JobController,MajorController,UserController,Applic
     router.use('/', apiRoute);
     apiRoute.use('/auth',  AuthRoutes);
     
-    apiRoute.use('/', (req,res,next) => sessionMiddleware.verificarInicioSesion(req,res,next));
+    // apiRoute.use('/', (req,res,next) => sessionMiddleware.verificarInicioSesion(req,res,next));
     
     // apiRoute.use('/jobs', (req,res,next) =>  sessionMiddleware.esAdmin(req,res,next));
     apiRoute.use('/jobs', new BaseRoutes({ Controller: JobController }).getRouter());
