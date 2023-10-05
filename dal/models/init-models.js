@@ -1,15 +1,15 @@
 var DataTypes = require("sequelize").DataTypes;
-// var _administradores = require("../entities/administradores");
+// var _administradores = require("../administradores");
 var _empresas = require("./empresas");
-var _especialidades = require("./entities/especialidades");
-var _informacion_trabajos = require("./entities/informacion_trabajos");
-var _postulaciones = require("./entities/postulaciones");
+var _especialidades = require("./especialidades");
+var _informacion_trabajos = require("./informacion_trabajos");
+var _postulaciones = require("./postulaciones");
 var _postulantes = require("./postulantes");
-var _roles = require("./entities/roles");
-var _tipo_trabajo = require("./entities/tipo_trabajo");
-var _trabajos = require("./entities/trabajos");
-var _trabajos_especialidades = require("./entities/trabajos_especialidades");
-var _usuarios = require("./entities/usuarios");
+var _roles = require("./roles");
+var _tipo_trabajo = require("./tipo_trabajo");
+var _trabajos = require("./trabajos");
+var _trabajos_especialidades = require("./trabajos_especialidades");
+var _usuarios = require("./usuarios");
 
 function initModels(sequelize) {
   // var administradores = _administradores(sequelize, DataTypes);
