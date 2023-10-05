@@ -1,5 +1,5 @@
 var DataTypes = require("sequelize").DataTypes;
-var _administradores = require("../entities/administradores");
+// var _administradores = require("../entities/administradores");
 var _empresas = require("./empresas");
 var _especialidades = require("../entities/especialidades");
 var _informacion_trabajos = require("../entities/informacion_trabajos");
@@ -12,7 +12,7 @@ var _trabajos_especialidades = require("../entities/trabajos_especialidades");
 var _usuarios = require("../entities/usuarios");
 
 function initModels(sequelize) {
-  var administradores = _administradores(sequelize, DataTypes);
+  // var administradores = _administradores(sequelize, DataTypes);
   var empresas = _empresas(sequelize, DataTypes);
   var especialidades = _especialidades(sequelize, DataTypes);
   var informacion_trabajos = _informacion_trabajos(sequelize, DataTypes);
@@ -52,7 +52,7 @@ function initModels(sequelize) {
   usuarios.hasMany(trabajos, { as: "id_usuario_trabajos", foreignKey: "id_usuario"});
 
   return {
-    administradores,
+    // administradores,
     empresas,
     especialidades,
     informacion_trabajos,
