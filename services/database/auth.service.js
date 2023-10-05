@@ -2,8 +2,10 @@ const CustomError = require("../../helpers/custom.error");
 
 
 class AuthService {
-    constructor({ UserBusiness }) {
+    // constructor({ UserBusiness }) {
+    constructor({ UserBusiness, CompanyBusiness }) {
         this._userBusiness = UserBusiness;
+        this._companyBusiness = CompanyBusiness;
     }
 
     async login(body) {
@@ -23,11 +25,26 @@ class AuthService {
         const { email, password } = body;
         const user = await this._userBusiness.getByEmail(email);
         if (user)  throw new Error('El usuario ya existe');
-       console.log("Creo el usuario")
-        // CREO EL USUARIO
+    //    console.log("Creo el usuario")
         // const new_user = await this._userBusiness.create(body);
         
-        return user;
+        return new_user;
+    }
+
+    async registerCompany(body) {
+        const { 
+            email  
+         } = body;
+         console.log(body)
+        const company = await this._companyBusiness.getByEmail(email);
+        if (company)  throw new Error('El usuario ya existe');
+
+        // body.id_rol = "3";
+        console.log(body)
+        const new_company = await this._companyBusiness.create(body);
+        
+        
+        return new_company;
     }
  
 

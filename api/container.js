@@ -16,7 +16,7 @@ const { JobController,
         MajorController, 
         UserController, 
         ApplicationController,
-        
+        CompanyController,        
         AuthController } = require('./controller/');
 
 // const   ScrapperController = require("../services/scrapper/Scrapper.controller");
@@ -25,12 +25,14 @@ const { JobBusiness,
         JobInformationBusiness, 
         MajorBusiness, 
         UserBusiness,
+        CompanyBusiness,
         ApplicationBusiness  }  = require('../domain/business/')
 
 const { JobRepository, 
         JobInformationRepository,
         MajorRepository, 
         UserRepository, 
+        CompanyRepository,
         ApplicationRepository }  = require('../dal/repositories/')
 
 
@@ -86,7 +88,7 @@ container
         MajorRepository: asClass(MajorRepository).singleton(),
         UserRepository: asClass(UserRepository).singleton(),
         ApplicationRepository: asClass(ApplicationRepository).singleton(),
-        
+        CompanyRepository: asClass(CompanyRepository).singleton(),
     })
     .register({
         JobBusiness: asClass(JobBusiness).singleton(),
@@ -94,6 +96,7 @@ container
         MajorBusiness: asClass(MajorBusiness).singleton(),
         UserBusiness: asClass(UserBusiness).singleton(),
         ApplicationBusiness: asClass(ApplicationBusiness).singleton(),
+        CompanyBusiness: asClass(CompanyBusiness).singleton(),
         // ...
     })
  

@@ -17,8 +17,8 @@ module.exports = function( { JobController,MajorController,UserController,Applic
     
     router.use(morgan("dev"));
     router.use('/', apiRoute);
-    apiRoute.use('/auth',  AuthRoutes);
     
+    apiRoute.use('/auth',  AuthRoutes);
     // apiRoute.use('/', (req,res,next) => sessionMiddleware.verificarInicioSesion(req,res,next));
     
     // apiRoute.use('/jobs', (req,res,next) =>  sessionMiddleware.esAdmin(req,res,next));

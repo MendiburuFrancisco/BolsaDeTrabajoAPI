@@ -28,20 +28,20 @@ class JobController extends BaseController {
     return res.send(jobs);
   }
 
-  // async create(req, res) {
-  //     try {
-  //         const {body} = req;
-  //         let job = await this._service.create(body);
-  //         return res.send({
-  //             payload: job
-  //         });
-  //     } catch (error) {
-  //         console.error(error);
-  //         return res.status(500).send({
-  //             error: 'Hubo un error al obtener los trabajos'
-  //         });
-  //     }
-  // }
+  async create(req, res) {
+      try {
+          const {body} = req;
+          let job = await this._service.create(body);
+          return res.status(201).send({
+              payload: job
+          });
+      } catch (error) {
+          console.error(error);
+          return res.status(500).send({
+              error: 'Hubo un error al obtener los trabajos'
+          });
+      }
+  }
 }
 
 module.exports = JobController;

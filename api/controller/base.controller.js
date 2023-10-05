@@ -7,6 +7,16 @@ class BaseController {
     this.entityDto = entityDto;
   }
 
+  // paginar_entidad(entidad, pagina, cantidad) {
+  //   const pagina_actual = pagina;
+  //   const cantidad_por_pagina = cantidad;
+  //   const indice_inicio = (pagina_actual - 1) * cantidad_por_pagina;
+  //   const indice_final = pagina_actual * cantidad_por_pagina;
+  //   const entidad_paginada = entidad.slice(indice_inicio, indice_final);
+  //   return entidad_paginada;
+  // }
+
+
   async getAll(req, res) {
     try {
       let items = await this._service.getAll();
@@ -58,6 +68,7 @@ class BaseController {
   }
 
   async update(req, res) {
+    
     const { body } = req;
     const { id } = req.params;
 
