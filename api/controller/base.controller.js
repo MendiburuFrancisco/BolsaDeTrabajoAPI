@@ -89,6 +89,20 @@ class BaseController {
       }
     );
   }
+
+  // async options(req, res) {
+  //   try {
+  //     let items = await this._service.options();
+  //     return res.send({
+  //       payload: items,
+  //     });
+  //   } catch (error) {
+  //     console.error(error);
+  //     return res.status(500).send({
+  //       error: "Hubo un error al obtener los trabajos",
+  //     });
+  //   }
+  // }
 }
 
 module.exports = BaseController;

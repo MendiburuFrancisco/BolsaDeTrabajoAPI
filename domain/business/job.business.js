@@ -27,9 +27,9 @@ class JobBusiness extends BaseBusiness {
     }
   }
 
-  async getAll() {
+  async getAll(filter={},page=1) {
     try {
-      const entities = await this._entityRepository.getAll();
+      const entities = await this._entityRepository.getAll(filter=filter,page=page);
 
       return entities.map((entity) => mapper(this.entityToMap, entity));
     } catch (error) {

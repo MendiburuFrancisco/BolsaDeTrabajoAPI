@@ -17,9 +17,19 @@ class JobRepository extends BaseRepository {
     //   // }
     // }
 
-    async getAll() {
-      const elements = await this._db[this.model].findAll({
+    async getAll(filter = {}, page = 1, limit = 8) {
+
+      let _offset = 0;
+      if (page > 1) {
+        _offset = (page - 1) * limit;
+      }
+
+      console.log(filter)
+      const elements = await this._db[this.model].findAndCountAll({
         raw: true,
+        offset:_offset,
+        limit:limit,
+        where:filter,
         include: [{
           model: this._db.tipo_trabajo,
           as: 'tipoTrabajo',
@@ -36,8 +46,8 @@ class JobRepository extends BaseRepository {
         //   exclude: ['id_tipo_trabajo','id_usuario', 'id_empresa']
         // } 
       });
-      // console.log(elements)
-      return elements;
+      // console.log(elements);
+      return elements['rows'];
     }
     
     async createVerifiedJob(job) {
