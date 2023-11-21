@@ -62,7 +62,7 @@ container
         ApplicationController: asClass(ApplicationController).singleton(),
         // ScrapperController: asClass(ScrapperController).singleton(),
         AuthController: asClass(AuthController).singleton(),
-        
+        CompanyController: asClass(CompanyController).singleton(),
         // UserRoutes: asFunction(UserRoutes).singleton()
         // ...
     }) 
