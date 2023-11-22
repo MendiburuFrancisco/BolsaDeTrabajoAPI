@@ -4,10 +4,10 @@ const JwtAdapter = require("../../helpers/jwt");
 
 // class Usuario extends attributes({
 const Usuario = attributes({
-  // id: {
-  //   type: Number,
-  //   default: 0
-  // },
+  id: {
+    type: Number,
+    default: 0
+  },
   id_role: {
     type: Number,
   },

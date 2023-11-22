@@ -3,10 +3,10 @@ const BcryptAdapter = require("../../helpers/bcrypt");
 const JwtAdapter = require("../../helpers/jwt");
 
 const Empresa = attributes({
-  // id: {
-  //   type: Number,
-  //   default: 0
-  // },
+  id: {
+    type: Number,
+    default: 0
+  },
     id_rol: {
     type: Number,
     default: 3

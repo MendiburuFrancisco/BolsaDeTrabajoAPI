@@ -10,7 +10,8 @@ const { JobService,
         MajorService, 
         UserService, 
         ApplicationService,
-        AuthService } = require('../services/database/');
+        AuthService,
+        CompanyService } = require('../services/database/');
 
 const { JobController,
         MajorController, 
@@ -61,7 +62,7 @@ container
         ApplicationController: asClass(ApplicationController).singleton(),
         // ScrapperController: asClass(ScrapperController).singleton(),
         AuthController: asClass(AuthController).singleton(),
-        
+        CompanyController: asClass(CompanyController).singleton(),
         // UserRoutes: asFunction(UserRoutes).singleton()
         // ...
     }) 
@@ -78,6 +79,7 @@ container
         UserService: asClass(UserService).singleton(),
         ApplicationService: asClass(ApplicationService).singleton(),
         AuthService: asClass(AuthService).singleton(),
+        CompanyService: asClass(CompanyService).singleton(),
         // ...
     })
 

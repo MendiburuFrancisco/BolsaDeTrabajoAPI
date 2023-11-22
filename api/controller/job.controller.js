@@ -1,7 +1,7 @@
 const configs = require("../../configs/enviroments/");
 const mapper = require("automapper-js");
 const { JobDto } = require("../dto");
-const BaseController = require("./base.controller");
+const BaseController = require("./base.controller"); 
 
 // const username = configs.SCRAPPER.user
 // const password = configs.SCRAPPER.password;
@@ -20,7 +20,38 @@ class JobController extends BaseController {
   }
 
   async getAll(req, res) {
-    let jobs = await this._service.getAll();
+    
+    let filter = {}
+    const pagina = req.query?.page;
+    delete req.query.page;
+  // si existen parametros de busqueda
+    if (req.query.search) {
+
+      const filterValue = req.query.search;
+      delete req.query.search;
+      const { Op } = require("sequelize");
+      filter = {
+        ...req.query,
+        [Op.or]: [
+          {titulo: {
+            [Op.like]: '%' + filterValue + '%' // Use the $like operator
+          }},
+         { descripcion:{
+          [Op.like]: '%' + filterValue + '%' // Use the $like operator
+        } }
+        ]
+      }
+      }else{
+        filter = {
+          ...req.query
+        }
+      
+      
+    }
+
+    console.log(filter)
+
+    let jobs = await this._service.getAll(filter,pagina);
     jobs = jobs.map((job) => {
       const jobDto = JobDto.mappear_getAll(job);
       return jobDto;

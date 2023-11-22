@@ -1,15 +1,16 @@
 const express = require('express');
 const BaseRoutes  = require('./base.routes'); 
 const morgan = require('morgan');
+const cors = require('cors');
 const sessionMiddleware = require('../middlewares/session'); 
 
 
-module.exports = function( { JobController,MajorController,UserController,ApplicationController, AuthRoutes } ) {
+module.exports = function( { JobController,MajorController,UserController,ApplicationController, AuthRoutes,CompanyController } ) {
     const router = express.Router();
     const apiRoute = express.Router();
 
     apiRoute
-        // .use(cors())
+        .use(cors())
         .use(express.json())
         .use(express.urlencoded({ extended: true })) 
         // .use(compression)
@@ -23,6 +24,8 @@ module.exports = function( { JobController,MajorController,UserController,Applic
     
     // apiRoute.use('/jobs', (req,res,next) =>  sessionMiddleware.esAdmin(req,res,next));
     apiRoute.use('/jobs', new BaseRoutes({ Controller: JobController }).getRouter());
+    
+    apiRoute.use('/company', new BaseRoutes({ Controller: CompanyController }).getRouter());
     
     apiRoute.use('/majors', new BaseRoutes({ Controller: MajorController }).getRouter());
     apiRoute.use('/users', new BaseRoutes({ Controller: UserController }).getRouter());
