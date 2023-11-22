@@ -22,6 +22,13 @@
 							"path": [
 								"jobs",
 								""
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -51,13 +58,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/jobs/14",
+							"raw": "{{URL}}/jobs/14s",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"jobs",
-								"14"
+								"14s"
 							]
 						}
 					},
@@ -96,7 +103,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\":22,\r\n    \"id_tipo_trabajo\": 2,\r\n    \"titulo\": \"{{$randomJobTitle}}\",\r\n    \"fecha_desde\": \"2023-09-07\",\r\n    \"fecha_hasta\": \"2023-09-12\",\r\n    \"descripcion\": \"{{$randomJobDescriptor}}\",\r\n    \"sueldo\": {{$randomInt}},\r\n    \"ubicacion\": \"{{$randomStreetAddress}}\",\r\n    \"empresa\": \"{{$randomCompanyName}}\",\r\n    \"nivel_experiencia\": \"{{$randomLoremWord}}\"\r\n}",
+							"raw": "// {\r\n//   \"id\":22,\r\n//     \"id_tipo_trabajo\": 2,\r\n//     \"titulo\": \"{{$randomJobTitle}}\",\r\n//     \"fecha_desde\": \"2023-09-07\",\r\n//     \"fecha_hasta\": \"2023-09-12\",\r\n//     \"descripcion\": \"{{$randomJobDescriptor}}\",\r\n//     \"sueldo\": {{$randomInt}},\r\n//     \"ubicacion\": \"{{$randomStreetAddress}}\",\r\n//     \"empresa\": \"{{$randomCompanyName}}\",\r\n//     \"nivel_experiencia\": \"{{$randomLoremWord}}\"\r\n// }\r\n   {\r\n        // \"id\": 15,\r\n         \"id_usuario\":\"1\",\r\n        \"fecha_desde\": \"2023-09-07\",\r\n        \"fecha_hasta\": \"2023-09-12\",\r\n        \"descripcion\": \"Con la supervisión adecuada, tendrás que relevar equipos en campo, pasar la información relevada en campo a planillas Excel. También, deberás hacer lectura de planes de mantenimiento indicados por fabricantes en manuales para confeccionar planes de mantenimiento. \\n Cual es tu responsabilidad \\n        *       Relevamiento en campo.\\n        *       Generar base de datos en forma segura, ordenada y clara.\\n*       Redacción de procedimientos de mantenimiento.\\n*       Carga de repuestos y planes de mantenimiento en software demantenimiento.\\nCuáles son los requisitos para el cargo\\n*       Estudiante de ingeniería mecánica, eléctrica o electrónica.\\n       *       Que reste al menos 1 año y medio para finalizar la carrera.\\n*       Inglés intermedio.\\n       *       Manejo de Paquete Office.\\n*       Capacidad de trabajar en campo.\\n*       Interpretación de P&ID\\nAcerca del equipo\\nSomos un equipo que cuenta con un supervisor y 5 técnicos de campo.\\n Beneficios:\\n*       Cobertura médica\\n*       Día de cumpleaños libre+\\n*       Capacitación constante en nuestra Plataforma e-learning\\n*       Programa con la Certificación Work & Life Balance\\n*       Amplia gama de descuentos en restaurantes, gimnasios, productos de consumo, en formación y otros\\n        *       Días flex de estudio\\n*       14 días de vacaciones (pasados los primeros 6 meses de contrato)\",\r\n        \"sueldo\": \"138.00\",\r\n        \"ubicacion\": \"847 Alejandra Points\",\r\n\r\n        \"empresa\": \"Brown\",\r\n        \"nivel_experiencia\": \"odit\",\r\n        \"chequeado\": 0,\r\n        \"titulo\": \"Legacy Branding Representative\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -104,13 +111,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL}}/jobs/11",
+							"raw": "{{URL}}/jobs/15",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"jobs",
-								"11"
+								"15"
 							]
 						}
 					},
@@ -253,12 +260,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{usuarios}}/11",
+							"raw": "{{usuarios}}/1",
 							"host": [
 								"{{usuarios}}"
 							],
 							"path": [
-								"11"
+								"1"
 							]
 						}
 					},
@@ -270,12 +277,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{usuarios}}/8",
+							"raw": "{{usuarios}}/18",
 							"host": [
 								"{{usuarios}}"
 							],
 							"path": [
-								"8"
+								"18"
 							]
 						}
 					},
@@ -288,7 +295,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\":0,\r\n    \"id_role\": 2,\r\n    \"nombre\": \"Jose\",\r\n    \"apellido\": \"Sanchez\",\r\n    \"legajo\": \"442218\",\r\n    \"email\": \"JSanchez@frro.utn.edu.ar\",\r\n    \"password\": \"12345\",\r\n    \"verified\": \"1\"\r\n    // \"remember_token\": \"{{$randomAbbreviation}}\",\r\n    // \"email_veried_at\": \"{{$randomAbbreviation}}\",\r\n    // \"createdAt\": \"{{$randomAbbreviation}}\",\r\n    // \"updatedAt\": \"{{$randomAbbreviation}}\"\r\n}\r\n\r\n  ",
+							"raw": "{\r\n    // \"id\":2,\r\n    \"id_role\": 2,\r\n    \"nombre\": \"Guachito\",\r\n    \"apellido\": \"Gil\",\r\n    \"legajo\": \"44asda2218\",\r\n    \"email\": \"ggAAAil@frro.utn.edu.ar\",\r\n    \"password\": \"1256\",\r\n    \"verified\": \"1\"\r\n    // \"remember_token\": \"{{$randomAbbreviation}}\",\r\n    // \"email_veried_at\": \"{{$randomAbbreviation}}\",\r\n    // \"createdAt\": \"{{$randomAbbreviation}}\",\r\n    // \"updatedAt\": \"{{$randomAbbreviation}}\"\r\n}\r\n\r\n  ",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -314,7 +321,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \r\n    \"nombre\": \"Francisco\",\r\n    \"apellido\": \"Mendiburu\",\r\n    \"legajo\": \"47218\",\r\n    \"email\": \"FMendiburu@frro.utn.edu.ar\",\r\n    \"password\": \"12344\",\r\n    \"verified\": \"1\"\r\n    // \"remember_token\": \"{{$randomAbbreviation}}\",\r\n    // \"email_veried_at\": \"{{$randomAbbreviation}}\",\r\n    // \"createdAt\": \"{{$randomAbbreviation}}\",\r\n    // \"updatedAt\": \"{{$randomAbbreviation}}\"\r\n}\r\n\r\n  ",
+							"raw": "{\r\n//    \"id_role\":1,\r\n    \"nombre\": \"Francisco\",\r\n    \"apellido\": \"Mendiburu\",\r\n    \"legajo\": \"47218\",\r\n    \"email\": \"fmendiburu@frro.utn.edu.ar\",\r\n    \"password\": \"123456\",\r\n    \"verified\": \"1\"\r\n    // \"remember_token\": \"{{$randomAbbreviation}}\",\r\n    // \"email_veried_at\": \"{{$randomAbbreviation}}\",\r\n    // \"createdAt\": \"{{$randomAbbreviation}}\",\r\n    // \"updatedAt\": \"{{$randomAbbreviation}}\"\r\n}\r\n\r\n  ",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -396,7 +403,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_usuario\":3,\r\n    \"id_trabajo\": 15\r\n \r\n}\r\n\r\n  ",
+							"raw": "{\r\n    \"id_usuario\":3,\r\n    \"id_trabajo\": 20\r\n \r\n}\r\n\r\n  ",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -448,25 +455,64 @@
 			"item": []
 		},
 		{
-			"name": "Validar Datos Usuario",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8888/login/Fmendiburu/Password",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8888",
-					"path": [
-						"login",
-						"Fmendiburu",
-						"Password"
-					]
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Log user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"fmendiburu@frro.utn.edu.ar\",\r\n    \"password\":\"123456\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"FMendiburu@frro.utn.edu.ar\",\r\n    \"password\":\"123451\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/register/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	],
 	"event": [
@@ -492,7 +538,7 @@
 	"variable": [
 		{
 			"key": "URL",
-			"value": "http://localhost:8888"
+			"value": "https://bolsadetrabajoapi-production.up.railway.app"
 		},
 		{
 			"key": "especialidades",

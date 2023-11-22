@@ -5,22 +5,14 @@ const basename = path.basename(__filename);
 const { DB } = require("../../configs/enviroments/");
 const config = DB;
 const db = {};
-
+// const initModels = require("../helpers/init-models");
+const initModels = require("./init-models");
 const sequelize = new Sequelize(config.database, config.username, config.password, config);
 
-fs.readdirSync(__dirname)
-  .filter(file => {
-    return file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js";
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize);
-    db[model.name] = model;
-  });
+const models = initModels(sequelize);
 
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
+Object.keys(models).forEach(modelName => {
+  db[modelName] = models[modelName];
 });
 
 db.sequelize = sequelize;

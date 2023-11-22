@@ -10,27 +10,30 @@ const { JobService,
         MajorService, 
         UserService, 
         ApplicationService,
-        AuthService } = require('../services/database/');
+        AuthService,
+        CompanyService } = require('../services/database/');
 
 const { JobController,
         MajorController, 
         UserController, 
         ApplicationController,
-        
+        CompanyController,        
         AuthController } = require('./controller/');
 
-const   ScrapperController = require("../services/scrapper/Scrapper.controller");
+// const   ScrapperController = require("../services/scrapper/Scrapper.controller");
 
 const { JobBusiness, 
         JobInformationBusiness, 
         MajorBusiness, 
         UserBusiness,
+        CompanyBusiness,
         ApplicationBusiness  }  = require('../domain/business/')
 
 const { JobRepository, 
         JobInformationRepository,
         MajorRepository, 
         UserRepository, 
+        CompanyRepository,
         ApplicationRepository }  = require('../dal/repositories/')
 
 
@@ -57,9 +60,9 @@ container
         MajorController: asClass(MajorController).singleton(),
         UserController: asClass(UserController).singleton(),
         ApplicationController: asClass(ApplicationController).singleton(),
-        ScrapperController: asClass(ScrapperController).singleton(),
+        // ScrapperController: asClass(ScrapperController).singleton(),
         AuthController: asClass(AuthController).singleton(),
-        
+        CompanyController: asClass(CompanyController).singleton(),
         // UserRoutes: asFunction(UserRoutes).singleton()
         // ...
     }) 
@@ -76,6 +79,7 @@ container
         UserService: asClass(UserService).singleton(),
         ApplicationService: asClass(ApplicationService).singleton(),
         AuthService: asClass(AuthService).singleton(),
+        CompanyService: asClass(CompanyService).singleton(),
         // ...
     })
 
@@ -86,7 +90,7 @@ container
         MajorRepository: asClass(MajorRepository).singleton(),
         UserRepository: asClass(UserRepository).singleton(),
         ApplicationRepository: asClass(ApplicationRepository).singleton(),
-        
+        CompanyRepository: asClass(CompanyRepository).singleton(),
     })
     .register({
         JobBusiness: asClass(JobBusiness).singleton(),
@@ -94,6 +98,7 @@ container
         MajorBusiness: asClass(MajorBusiness).singleton(),
         UserBusiness: asClass(UserBusiness).singleton(),
         ApplicationBusiness: asClass(ApplicationBusiness).singleton(),
+        CompanyBusiness: asClass(CompanyBusiness).singleton(),
         // ...
     })
  

@@ -121,41 +121,41 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
 
-  Trabajo.associate = function (models) {
+  // Trabajo.associate = function (models) {
    
-    // Trabajo.belongsToMany(models.especialidades, {
-    //   as: "id_especialidad_especialidades",
-    //   through: trabajos_especialidades,
-    //   foreignKey: "id_trabajo",
-    //   otherKey: "id_especialidad",
-    // });
+  //   // Trabajo.belongsToMany(models.especialidades, {
+  //   //   as: "id_especialidad_especialidades",
+  //   //   through: trabajos_especialidades,
+  //   //   foreignKey: "id_trabajo",
+  //   //   otherKey: "id_especialidad",
+  //   // });
 
-    Trabajo.belongsTo(models.empresas, {
-      as: "id_empresa_empresa",
-      foreignKey: "id_empresa",
-    });
-    // Trabajo.hasMany(models.trabajos_especialidades, { as: "trabajos_especialidades", foreignKey: "id_trabajo"});
-    // Trabajo.hasMany(models.postulaciones, { as: "postulaciones", foreignKey: "id_trabajo"});
-    Trabajo.belongsTo(models.tipo_trabajo, {
-      as: "tipoTrabajo", // Updated alias to match the association
-      foreignKey: "id_tipo_trabajo",
-    });
+  //   Trabajo.belongsTo(models.empresas, {
+  //     as: "id_empresa_empresa",
+  //     foreignKey: "id_empresa",
+  //   });
+  //   // Trabajo.hasMany(models.trabajos_especialidades, { as: "trabajos_especialidades", foreignKey: "id_trabajo"});
+  //   // Trabajo.hasMany(models.postulaciones, { as: "postulaciones", foreignKey: "id_trabajo"});
+  //   Trabajo.belongsTo(models.tipo_trabajo, {
+  //     as: "tipoTrabajo", // Updated alias to match the association
+  //     foreignKey: "id_tipo_trabajo",
+  //   });
     
     
-    Trabajo.belongsTo(models.usuarios, {
-      as: "id_admin_usuario",
-      foreignKey: "id_admin",
-    });
-    Trabajo.belongsTo(models.usuarios, {
-      as: "id_usuario_usuario",
-      foreignKey: "id_usuario",
-    });
-    Trabajo.belongsToMany(models.usuarios, {
-      as: "id_usuario_usuarios",
-      through: models.postulaciones,
-      foreignKey: "id_trabajo",
-      otherKey: "id_usuario",
-    });
-  };
+  //   Trabajo.belongsTo(models.usuarios, {
+  //     as: "id_admin_usuario",
+  //     foreignKey: "id_admin",
+  //   });
+  //   Trabajo.belongsTo(models.usuarios, {
+  //     as: "id_usuario_usuario",
+  //     foreignKey: "id_usuario",
+  //   });
+  //   Trabajo.belongsToMany(models.usuarios, {
+  //     as: "id_usuario_usuarios",
+  //     through: models.postulaciones,
+  //     foreignKey: "id_trabajo",
+  //     otherKey: "id_usuario",
+  //   });
+  // };
   return Trabajo;
 };

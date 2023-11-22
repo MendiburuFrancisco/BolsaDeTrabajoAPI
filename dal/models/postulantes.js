@@ -1,32 +1,24 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('empresas', {
+  return sequelize.define('postulantes', {
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER.UNSIGNED,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    id_rol: {
-      type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: false
-    },
-    id_admin_alta: {
-      type: DataTypes.INTEGER.UNSIGNED,
+    id_especialidad: {
+      type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'usuarios',
+        model: 'especialidades',
         key: 'id'
       }
     },
-    cuit: {
+    legajo: {
       type: DataTypes.STRING(45),
       allowNull: false,
-      unique: "cuit_UNIQUE"
-    },
-    razon_social: {
-      type: DataTypes.STRING(255),
-      allowNull: false
+      unique: "legajo_UNIQUE"
     },
     email: {
       type: DataTypes.STRING(255),
@@ -37,26 +29,26 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: false
     },
-    remember_token: {
+    anio_cursando: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    turno_cursando: {
       type: DataTypes.STRING(100),
       allowNull: true
     },
-    telefono: {
+    promedio_con_aplazos: {
       type: DataTypes.STRING(45),
-      allowNull: false
-    },
-    verified: {
-      type: DataTypes.TINYINT,
       allowNull: true
     },
-    verifiedAt: {
-      type: DataTypes.DATE,
+    promedio_sin_aplazos: {
+      type: DataTypes.STRING(45),
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'empresas',
-    timestamps: true,
+    tableName: 'postulantes',
+    timestamps: false,
     indexes: [
       {
         name: "PRIMARY",
@@ -67,11 +59,11 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "cuit_UNIQUE",
+        name: "legajo_UNIQUE",
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "cuit" },
+          { name: "legajo" },
         ]
       },
       {
@@ -83,17 +75,18 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "empresas_administrador_alta_idx",
+        name: "id_UNIQUE",
+        unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_admin_alta" },
+          { name: "id" },
         ]
       },
       {
-        name: "empresa_rol_idx",
+        name: "postulante_especialidad_idx",
         using: "BTREE",
         fields: [
-          { name: "id_rol" },
+          { name: "id_especialidad" },
         ]
       },
     ]
