@@ -25,15 +25,16 @@ class ApplicationRepository extends BaseRepository {
       offset:_offset,
       limit:limit,
       where:filter,
+       
 
       include: [
         {
           model: this._db.trabajos,
           as: 'id_trabajo_trabajo',
           
-          exclude: ['id_tipo_trabajo','id_usuario', 'id_empresa'],
+          // exclude: ['id_tipo_trabajo','id_usuario', 'id_empresa'],
           // attributes: ['titulo','descripcion','fecha_inicio','fecha_fin','id_tipo_trabajo','id_usuario','id_empresa','id_estado']
-          // attributes: ['titulo','descripcion','fecha_desde','fecha_hasta'],
+          attributes: ['titulo','descripcion','fecha_desde','fecha_hasta'],
           include:[
           {
             model: this._db.tipo_trabajo,
@@ -48,17 +49,21 @@ class ApplicationRepository extends BaseRepository {
           attributes: ['nombre', 'apellido']
     
         },]
-        },  
+        }  
+      ]
         
 
   
   
-    ]
    
     });
  
     return elements;
     // return elements['rows'];
+  }
+
+  create(model) {
+    return this._db[this.model].create(model.toJSON());
   }
 
 

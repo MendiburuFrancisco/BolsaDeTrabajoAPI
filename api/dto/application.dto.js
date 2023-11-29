@@ -4,6 +4,8 @@ const mapper = require("automapper-js");
 class ApplicationDto {
   
   id_usuario = 0;
+  // id_trabajo = 0;
+  createdAt = null; 
   trabajo= {
     usuario : {
       id: 0,
@@ -20,7 +22,6 @@ class ApplicationDto {
     nivel_experiencia : null,
     chequeado : 0
   };
-  createdAt = null; 
 
   static mappear(application){
     const ApplicationDto = mapper(ApplicationDto, application);
@@ -36,6 +37,7 @@ class ApplicationDto {
         nombreApellido: application['id_trabajo_trabajo.id_usuario_usuario.nombre'] + ' ' + application['id_trabajo_trabajo.id_usuario_usuario.apellido']
       },
       // id_empresa = null;
+      titulo : application['id_trabajo_trabajo.titulo'],
       fecha_desde : application['id_trabajo_trabajo.fecha_desde'],
       fecha_hasta : application['id_trabajo_trabajo.fecha_hasta'],
       descripcion : application['id_trabajo_trabajo.descripcion'],
@@ -47,8 +49,8 @@ class ApplicationDto {
       chequeado : application['id_trabajo_trabajo.chequeado'],
       chequeadoAt: application['id_trabajo_trabajo.chequeadoAt'],
       tipo: application['id_trabajo_trabajo.tipoTrabajo.tipo']
-
-    };
+      
+  };
     
     const variables = ['fecha_desde','fecha_hasta','descripcion','titulo','id_tipo_trabajo','id_usuario',
           'sueldo','ubicacion','link','empresa',"id_usuario_usuario.apellido","id_usuario_usuario.nombre",'tipoTrabajo.id',

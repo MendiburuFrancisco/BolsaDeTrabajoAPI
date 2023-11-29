@@ -11,7 +11,16 @@ class ApplicationBusiness extends BaseBusiness {
   }
 
  
- 
+
+  async getAll(filter = {}, page = 1, limit = 10) {
+    return await this._entityRepository.getAll(filter, page, limit);
+  }
+
+  async create(entity) {
+    entity = mapper(this.entityToMap, entity);    
+    const createdEntity = await this._entityRepository.create(entity);
+    return mapper(this.entityToMap, createdEntity.toJSON());
+  }
 
 
 }

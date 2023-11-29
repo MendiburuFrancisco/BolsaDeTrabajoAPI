@@ -1,4 +1,4 @@
-const configs = require("../../configs/enviroments/");
+
 const mapper = require("automapper-js");
 const { JobDto } = require("../dto");
 const BaseController = require("./base.controller"); 
