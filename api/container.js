@@ -34,7 +34,9 @@ const { JobRepository,
         MajorRepository, 
         UserRepository, 
         CompanyRepository,
-        ApplicationRepository }  = require('../dal/repositories/')
+        ApplicationRepository,
+        
+    }  = require('../dal/repositories/')
 
 
 
