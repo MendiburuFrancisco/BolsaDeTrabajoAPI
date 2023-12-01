@@ -19,6 +19,7 @@ class UserBusiness extends BaseBusiness {
   async getByEmail(email) {
 
     const entity =  await this._entityRepository.getByEmail(email);
+    if (!entity) return null;
     return mapper(this.entityToMap, entity.toJSON());
 
   }

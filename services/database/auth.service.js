@@ -18,15 +18,16 @@ class AuthService {
             "token": user.getToken()
             }
 
-        throw CustomError.badRequest("Creedenciales incorrectas");
+        throw CustomError.unauthorized("Creedenciales incorrectas");
     }
 
     async register(body) {
         const { email, password } = body;
+        console.log(body)
         const user = await this._userBusiness.getByEmail(email);
         if (user)  throw new Error('El usuario ya existe');
     //    console.log("Creo el usuario")
-        // const new_user = await this._userBusiness.create(body);
+        const new_user = await this._userBusiness.create(body);
         
         return new_user;
     }

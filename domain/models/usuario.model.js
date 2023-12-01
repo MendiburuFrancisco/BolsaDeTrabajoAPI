@@ -91,6 +91,7 @@ const Usuario = attributes({
   // }
   getToken() {
     const payload = {
+      id: this.id,
       id_role: this.id_role,
       legajo: this.legajo,
     };
