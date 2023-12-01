@@ -1,3 +1,5 @@
+const BaseRepository = require("./base.repository");
+
 module.exports =  {
  
     JobRepository: require("./job.repository"),
@@ -6,6 +8,7 @@ module.exports =  {
     UserRepository: require("./user.repository"),
     ApplicationRepository: require("./application.repository"),
     CompanyRepository: require("./company.repository"),
-    // UserRepository: new BaseRepository(  DB,"usuarios"  ),
+   // UserRepository: new BaseRepository(  DB,"usuarios"  ),
+    JobTypeRepository: require ("./jobtype.repository")
   };
  

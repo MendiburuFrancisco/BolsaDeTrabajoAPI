@@ -7,4 +7,5 @@ module.exports = {
     Postulacion: require("./postulacion.model"),
     AuthLogin: require("./auth.login.model"),
     Company: require("./empresa.model"),
+    JobType : require("./tipo_trabajo.model")
   };

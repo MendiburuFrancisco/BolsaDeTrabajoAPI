@@ -7,5 +7,7 @@ module.exports = {
     UserBusiness: require("./user.business"),
     ApplicationBusiness: require("./application.business"),
     CompanyBusiness: require("./company.business"),
+    JobTypeBusiness: require("./jobtype.business")
+
     // UserBusiness: new BaseBusiness(  db,"usuarios"  ),
 };
