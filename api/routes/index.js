@@ -5,7 +5,10 @@ const cors = require('cors');
 const sessionMiddleware = require('../middlewares/session'); 
 
 
-module.exports = function( { JobController,MajorController,UserController,ApplicationController, AuthRoutes,CompanyController } ) {
+module.exports = function( { JobController,MajorController, UserController,
+    ApplicationController,AuthRoutes,
+    CompanyController, JobTypeController } )  {
+    
     const router = express.Router();
     const apiRoute = express.Router();
 
@@ -24,7 +27,7 @@ module.exports = function( { JobController,MajorController,UserController,Applic
     
     // apiRoute.use('/jobs', (req,res,next) =>  sessionMiddleware.esAdmin(req,res,next));
     apiRoute.use('/jobs', new BaseRoutes({ Controller: JobController }).getRouter());
-    
+    apiRoute.use('/jobtype', new BaseRoutes({ Controller: JobTypeController }).getRouter());
     apiRoute.use('/company', new BaseRoutes({ Controller: CompanyController }).getRouter());
     
     apiRoute.use('/majors', new BaseRoutes({ Controller: MajorController }).getRouter());

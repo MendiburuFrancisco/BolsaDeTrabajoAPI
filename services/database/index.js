@@ -6,4 +6,5 @@ module.exports = {
     ApplicationService: require('./application.service'),
     AuthService: require('./auth.service'),
     CompanyService: require('./company.service'),
+    JobTypeService: require('./jobType.service'),
 }

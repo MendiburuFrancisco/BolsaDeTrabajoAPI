@@ -7,5 +7,6 @@ module.exports = {
     ApplicationController: require('./application.controller'),
     AuthController: require('./auth.controller'),
     CompanyController: require('./company.controller'),
+    JobTypeController: require('./jobType.controller'),
     // MajorController: new BaseController( {MajorService }),
 }
