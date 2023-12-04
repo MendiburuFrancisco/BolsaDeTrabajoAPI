@@ -5,11 +5,7 @@ const cors = require('cors');
 const sessionMiddleware = require('../middlewares/session'); 
 
 
-module.exports = function( { JobController,MajorController, UserController,
-    ApplicationController,AuthRoutes,
-    CompanyController, JobTypeController,
-    RolesController } )  {
-    
+module.exports = function( { JobController,MajorController,UserController,ApplicationController, AuthRoutes,CompanyController, JobTypeController } ) {
     const router = express.Router();
     const apiRoute = express.Router();
 
@@ -34,8 +30,9 @@ module.exports = function( { JobController,MajorController, UserController,
     apiRoute.use('/majors', new BaseRoutes({ Controller: MajorController }).getRouter());
     apiRoute.use('/users', new BaseRoutes({ Controller: UserController }).getRouter());
     apiRoute.use('/applications', new BaseRoutes({ Controller: ApplicationController }).getRouter());
-    
-    apiRoute.use('/roles', new BaseRoutes({Controller:RolesController}).getRouter());
+    apiRoute.use('/jobtype', new BaseRoutes({ Controller: JobTypeController }).getRouter());
+
+ 
 
     return router;
 }

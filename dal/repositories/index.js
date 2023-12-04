@@ -1,3 +1,5 @@
+const BaseRepository = require("./base.repository");
+
 module.exports =  {
  
     JobRepository: require("./job.repository"),
