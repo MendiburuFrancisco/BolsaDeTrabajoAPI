@@ -8,4 +8,5 @@ module.exports = {
     AuthLogin: require("./auth.login.model"),
     Company: require("./empresa.model"),
     TipoTrabajo: require("./tipoTrabajo.model"),
+    Roles: require('./roles.model')
   };

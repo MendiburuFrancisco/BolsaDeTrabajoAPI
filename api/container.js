@@ -13,6 +13,7 @@ const { JobService,
         AuthService,
         CompanyService,
         JobTypeService,
+        RolesService,
     } = require('../services/database/');
 
 const { JobController,
@@ -22,6 +23,7 @@ const { JobController,
         CompanyController,        
         AuthController,
         JobTypeController,
+        RolesController,
      } = require('./controller/');
 
 // const   ScrapperController = require("../services/scrapper/Scrapper.controller");
@@ -33,6 +35,7 @@ const { JobBusiness,
         CompanyBusiness,
         ApplicationBusiness,
         JobTypeBusiness,
+        RolesBusiness,
       }  = require('../domain/business/')
 
 const { JobRepository, 
@@ -42,6 +45,7 @@ const { JobRepository,
         CompanyRepository,
         ApplicationRepository,
         JobTypeRepository,
+        RolesRepository,
     }  = require('../dal/repositories/')
 
 
@@ -72,6 +76,7 @@ container
         AuthController: asClass(AuthController).singleton(),
         CompanyController: asClass(CompanyController).singleton(),
         JobTypeController: asClass(JobTypeController).singleton(),
+        RolesController: asClass(RolesController).singleton(),
         // UserRoutes: asFunction(UserRoutes).singleton()
         // ...
     }) 
@@ -90,6 +95,7 @@ container
         AuthService: asClass(AuthService).singleton(),
         CompanyService: asClass(CompanyService).singleton(),
         JobTypeService: asClass(JobTypeService).singleton(),
+        RolesService: asClass(RolesService).singleton(),
         // ...
     })
 
@@ -102,6 +108,7 @@ container
         ApplicationRepository: asClass(ApplicationRepository).singleton(),
         CompanyRepository: asClass(CompanyRepository).singleton(),
         JobTypeRepository: asClass(JobTypeRepository).singleton(),
+        RolesRepository: asClass(RolesRepository).singleton(),
 
     })
     .register({
@@ -112,6 +119,7 @@ container
         ApplicationBusiness: asClass(ApplicationBusiness).singleton(),
         CompanyBusiness: asClass(CompanyBusiness).singleton(),
         JobTypeBusiness: asClass(JobTypeBusiness).singleton(),
+        RolesBusiness: asClass(RolesBusiness).singleton(),
         // ...
     })
  

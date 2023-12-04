@@ -7,6 +7,7 @@ module.exports =  {
     ApplicationRepository: require("./application.repository"),
     CompanyRepository: require("./company.repository"),
     JobTypeRepository: require("./jobType.repository"),
+    RolesRepository: require("./roles.repository"),
     // UserRepository: new BaseRepository(  DB,"usuarios"  ),
   };
  

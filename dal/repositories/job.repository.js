@@ -34,7 +34,7 @@ class JobRepository extends BaseRepository {
         include: [{
           model: this._db.tipo_trabajo,
           as: 'tipoTrabajo',
-          attributes: ['tipo']
+          attributes: ['id','tipo']
         },
       {
         model: this._db.usuarios,
