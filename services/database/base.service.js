@@ -48,6 +48,7 @@ class BaseService {
   async update(id, entity) {
     try {
       const updatedEntity = await this._entityBusiness.update(id, entity);
+      console.log(updatedEntity)
       return updatedEntity;
     } catch (error) {
       if (error instanceof CustomError) throw error;

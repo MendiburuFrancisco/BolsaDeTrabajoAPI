@@ -17,7 +17,7 @@ class JobRepository extends BaseRepository {
     //   // }
     // }
 
-    async getAll(filter = {}, page = 1, limit = 8) {
+    async getAll(filter = {}, page = 1, limit = 11) {
 
       let _offset = 0;
       if (page > 1) {
@@ -25,7 +25,8 @@ class JobRepository extends BaseRepository {
       }
 
       console.log(filter)
-      const elements = await this._db[this.model].findAndCountAll({
+      const elements = await this._db[this.model].findAll({
+        // const elements = await this._db[this.model].findAndCountAll({
         raw: true,
         offset:_offset,
         limit:limit,
@@ -40,14 +41,16 @@ class JobRepository extends BaseRepository {
         as: 'id_usuario_usuario',
         attributes: ['nombre', 'apellido']
 
-      }
+      },
+    
       ]
         // attributes:{
         //   exclude: ['id_tipo_trabajo','id_usuario', 'id_empresa']
         // } 
       });
       // console.log(elements);
-      return elements['rows'];
+      return elements;
+      // return elements['rows'];
     }
     
     async createVerifiedJob(job) {

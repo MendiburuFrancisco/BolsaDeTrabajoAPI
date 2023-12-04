@@ -4,7 +4,7 @@ const TipoTrabajo = attributes({
   id: {
     type: Number,
     default: 0,
-    alowNull: false,
+    // alowNull: false,
   },
   tipo: {
     type: String,
@@ -12,7 +12,8 @@ const TipoTrabajo = attributes({
   },
   descripcion: {
     type: String,
-    nullable: true,
+    alowNull: true,
+
   },
  
  
