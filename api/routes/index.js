@@ -27,7 +27,7 @@ module.exports = function( { JobController,MajorController, UserController,
     
     // apiRoute.use('/jobs', (req,res,next) =>  sessionMiddleware.esAdmin(req,res,next));
     apiRoute.use('/jobs', new BaseRoutes({ Controller: JobController }).getRouter());
-    apiRoute.use('/jobtype', new BaseRoutes({ Controller: JobTypeController }).getRouter());
+    apiRoute.use('/jobtypes', new BaseRoutes({ Controller: JobTypeController }).getRouter());
     apiRoute.use('/company', new BaseRoutes({ Controller: CompanyController }).getRouter());
     
     apiRoute.use('/majors', new BaseRoutes({ Controller: MajorController }).getRouter());
